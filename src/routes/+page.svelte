@@ -106,17 +106,17 @@
 		<h1 class="text-4xl font-bold text-center mb-8 text-white drop-shadow-lg">Love Compatibility Calculator</h1>
 		
 		<div class="glass-morphism p-8 rounded-2xl backdrop-blur-lg border border-white/20 shadow-xl mb-8">
-			<p class="text-lg mb-6 text-white/90">
+			<p class="text-lg mb-6 dark:text-white/90">
 				Discover your love compatibility score with our fun and accurate love calculator. 
 				Enter two names below to see how well they match based on our unique algorithm.
 			</p>
 			
 			<div class="space-y-6">
 				<div>
-					<label for="name1" class="block text-sm font-medium text-white/80 mb-2">Your Name</label>
+					<label for="name1" class="block text-sm font-medium dark:text-white/80 mb-2">Your Name</label>
 					<div class="relative">
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 dark:text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
 							</svg>
 						</div>
@@ -132,7 +132,7 @@
 				</div>
 				
 				<div class="flex justify-center">
-					<div class="w-12 h-12 rounded-full bg-pink-500/20 border-2 border-white/20 flex items-center justify-center text-white/80">
+					<div class="w-12 h-12 rounded-full bg-pink-500/50 border-2 border-white/20 flex items-center justify-center text-white/80">
 						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
 						</svg>
@@ -143,7 +143,7 @@
 					<label for="name2" class="block text-sm font-medium text-white/80 mb-2">Partner's Name</label>
 					<div class="relative">
 						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
 							</svg>
 						</div>
@@ -186,8 +186,8 @@
 			<div class="glass-morphism p-8 rounded-2xl backdrop-blur-lg border border-white/20 shadow-xl mb-8 transform transition-all duration-500 ease-in-out">
 				<div class="text-center">
 					<div class="mb-6">
-						<div class="text-7xl font-bold text-white mb-2 drop-shadow-lg">{result.percentage}%</div>
-						<div class="text-xl text-white/90 mb-6 font-medium">{result.message}</div>
+						<div class="text-7xl dark:text-white/90 font-bold text-white mb-2 drop-shadow-lg">{result.percentage}%</div>
+						<div class="text-xl dark:text-white/90 mb-6 font-medium">{result.message}</div>
 						
 						<!-- Animated Progress Ring -->
 						<div class="relative w-48 h-48 mx-auto mb-8">
@@ -197,7 +197,7 @@
 									cy="50" 
 									r="45" 
 									fill="none" 
-									stroke="rgba(255, 255, 255, 0.1)" 
+									stroke="rgba(139 139 139 1.0)" 
 									stroke-width="10"
 									stroke-linecap="round"
 									class="transform -rotate-90 origin-center"
@@ -296,10 +296,10 @@
 <style>
 	/* Romantic Light Theme */
 	:global(body) {
-		background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+		background: linear-gradient(-45deg, #fd7e82, #ffc0af, #ffb7ea, #9bbfff);
 		background-size: 400% 400%;
 		animation: gradient 15s ease infinite;
-		color: #4a4a4a;
+		color: #4a4a4acb;
 	}
 
 	@keyframes gradient {
@@ -310,20 +310,20 @@
 
 	/* Glass Morphism Effect */
 	.glass-morphism {
-		background: rgba(255, 255, 255, 0.7);
-		box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.3);
+		background: rgba(255, 255, 255, 0.445);
+		box-shadow: 0 8px 32px 0 rgba(255, 132, 150, 0.788);
 		backdrop-filter: blur(8px);
 		-webkit-backdrop-filter: blur(8px);
-		border: 1px solid rgba(255, 255, 255, 0.5);
+		border: 1px solid rgba(255, 255, 255, 0.733);
 	}
 
 	.glass-button {
-		background: rgba(255, 255, 255, 0.7);
+		background: rgba(255, 255, 255, 0.445);
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
 		border: 1px solid rgba(255, 255, 255, 0.8);
 		transition: all 0.3s ease;
-		color: #ff6b88;
+		color: #ff2f59;
 	}
 
 	.glass-button:hover {
@@ -332,7 +332,7 @@
 	}
 
 	.glass-button-hover {
-		background: linear-gradient(45deg, #ff6b88, #ff8e9e);
+		background: linear-gradient(45deg, #ff2f59, #ff8e9e);
 		color: white;
 		border: none;
 		transition: all 0.3s ease;
@@ -351,7 +351,7 @@
 	}
 
 	.glass-input:focus {
-		border-color: #ff6b88 !important;
+		border-color: #ff2f59 !important;
 		box-shadow: 0 0 0 2px rgba(255, 107, 136, 0.2);
 	}
 
@@ -391,7 +391,7 @@
 
 	/* Update the heart icon color */
 	svg.text-pink-500 {
-		color: #ff6b88 !important;
+		color: #ff2f59 !important;
 	}
 
 	/* Add subtle animation to the plus icon */
