@@ -95,12 +95,9 @@
 
 <div class="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-red-100">
 	<!-- Ad Space Top -->
-	<div class="w-full h-20 bg-gray-100 border-b flex items-center justify-center text-gray-500 text-sm">
-		<!-- Ad Space Top -->
-		<div id="adsterra-top-banner">
-			<script async data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
-			<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
-		</div>
+	<div class="w-full h-20 bg-gray-100 border-b flex items-center justify-center text-gray-500 text-sm relative z-0" id="adsterra-top-banner">
+		<script async data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+		<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
 	</div>
 	
 	<div class="container mx-auto px-4 py-8 max-w-md">
@@ -231,10 +228,8 @@
 	</div>
 	
 	<!-- Ad Space Bottom -->
-	<div class="w-full h-20 bg-gray-100 border-t flex items-center justify-center text-gray-500 text-sm mt-8">
-		<div id="adsterra-bottom-banner">
-			<script async data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
-			<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
-		</div>
+	<div class="w-full h-20 bg-gray-100 border-t flex items-center justify-center text-gray-500 text-sm mt-8" id="adsterra-bottom-banner">
+		<script async data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+		<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
 	</div>
 </div>
