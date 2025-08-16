@@ -93,7 +93,7 @@
 	<title>Love Calculator – Check Your Name Compatibility Online</title>
 </svelte:head> -->
 
-<div class="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-red-100">
+<div class="min-h-screen bg-transparent">
 	<!-- Ad Space Top -->
 	<div class="w-full h-20 bg-gray-100 border-b flex items-center justify-center text-gray-500 text-sm">
 		<div id="adsterra-top-banner">
@@ -103,57 +103,78 @@
 	</div>
 	
 	<div class="container mx-auto px-4 py-12 max-w-3xl">
-		<h1 class="text-4xl font-bold text-center mb-8 text-pink-600 dark:text-pink-400">Love Compatibility Calculator</h1>
+		<h1 class="text-4xl font-bold text-center mb-8 text-white drop-shadow-lg">Love Compatibility Calculator</h1>
 		
-		<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
-			<p class="text-lg mb-6 text-gray-700 dark:text-gray-300">
+		<div class="glass-morphism p-8 rounded-2xl backdrop-blur-lg border border-white/20 shadow-xl mb-8">
+			<p class="text-lg mb-6 text-white/90">
 				Discover your love compatibility score with our fun and accurate love calculator. 
 				Enter two names below to see how well they match based on our unique algorithm.
 			</p>
 			
-			<div class="space-y-4">
+			<div class="space-y-6">
 				<div>
-					<label for="name1" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
-					<input 
-						type="text" 
-						id="name1" 
-						bind:value={name1}
-						class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-						placeholder="Enter your name"
-						disabled={isCalculating ? true : false}
-					/>
+					<label for="name1" class="block text-sm font-medium text-white/80 mb-2">Your Name</label>
+					<div class="relative">
+						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+							</svg>
+						</div>
+						<input 
+							type="text" 
+							id="name1" 
+							bind:value={name1}
+							class="glass-input w-full pl-10 pr-4 py-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all duration-200"
+							placeholder="Enter your name"
+							autocomplete="off"
+						/>
+					</div>
 				</div>
 				
-				<div class="text-4xl text-center text-pink-500">❤️</div>
-				
-				<div>
-					<label for="name2" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Partner's Name</label>
-					<input 
-						type="text" 
-						id="name2" 
-						bind:value={name2}
-						class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
-						placeholder="Enter partner's name"
-						disabled={isCalculating ? true : false}
-					/>
+				<div class="flex justify-center">
+					<div class="w-12 h-12 rounded-full bg-pink-500/20 border-2 border-white/20 flex items-center justify-center text-white/80">
+						<svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+						</svg>
+					</div>
 				</div>
 				
-				<div class="pt-4">
+				<div>
+					<label for="name2" class="block text-sm font-medium text-white/80 mb-2">Partner's Name</label>
+					<div class="relative">
+						<div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-white/50" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+							</svg>
+						</div>
+						<input 
+							type="text" 
+							id="name2" 
+							bind:value={name2}
+							class="glass-input w-full pl-10 pr-4 py-3 rounded-lg focus:ring-2 focus:ring-pink-500 focus:outline-none transition-all duration-200"
+							placeholder="Enter partner's name"
+							autocomplete="off"
+						/>
+					</div>
+				</div>
+				
+				<div class="pt-2">
 					<button 
 						onclick={handleCalculate}
 						disabled={!name1 || !name2 || isCalculating}
-						class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+						class="w-full glass-button-hover px-6 py-3.5 rounded-lg font-medium text-white transition-all duration-300 flex items-center justify-center gap-2"
 					>
 						{#if isCalculating}
-							<span class="flex items-center justify-center">
-								<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-									<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-									<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-								</svg>
-								Calculating Love...
-							</span>
+							<svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+								<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+							</svg>
+							<span>Calculating...</span>
 						{:else}
-							Calculate Love 💕
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+							</svg>
+							<span>Calculate Love</span>
 						{/if}
 					</button>
 				</div>
@@ -162,34 +183,66 @@
 		
 		<!-- Result Display -->
 		{#if showResult && result}
-			<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8 transform transition-all duration-500 ease-in-out">
+			<div class="glass-morphism p-8 rounded-2xl backdrop-blur-lg border border-white/20 shadow-xl mb-8 transform transition-all duration-500 ease-in-out">
 				<div class="text-center">
-					<div class="mb-4">
-						<div class="text-6xl font-bold text-pink-600 mb-2">{result.percentage}%</div>
-						<div class="text-lg text-gray-700 dark:text-gray-300 mb-4">{result.message}</div>
-					</div>
-					
-					<!-- Progress Bar -->
-					<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-6">
-						<div 
-							class="bg-gradient-to-r from-pink-500 to-red-500 h-4 rounded-full transition-all duration-1000 ease-out"
-							style="width: {result.percentage}%"
-						></div>
+					<div class="mb-6">
+						<div class="text-7xl font-bold text-white mb-2 drop-shadow-lg">{result.percentage}%</div>
+						<div class="text-xl text-white/90 mb-6 font-medium">{result.message}</div>
+						
+						<!-- Animated Progress Ring -->
+						<div class="relative w-48 h-48 mx-auto mb-8">
+							<svg class="w-full h-full" viewBox="0 0 100 100">
+								<circle 
+									cx="50" 
+									cy="50" 
+									r="45" 
+									fill="none" 
+									stroke="rgba(255, 255, 255, 0.1)" 
+									stroke-width="10"
+									stroke-linecap="round"
+									class="transform -rotate-90 origin-center"
+								/>
+								<circle 
+									cx="50" 
+									cy="50" 
+									r="45" 
+									fill="none" 
+									stroke="url(#gradient)" 
+									stroke-width="10"
+									stroke-linecap="round"
+									stroke-dasharray="283"
+									stroke-dashoffset={283 - (283 * result.percentage / 100)}
+									class="transform -rotate-90 origin-center transition-all duration-1000 ease-out"
+								/>
+								<defs>
+									<linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+										<stop offset="0%" stop-color="#ec4899" />
+										<stop offset="100%" stop-color="#f43f5e" />
+									</linearGradient>
+								</defs>
+							</svg>
+						</div>
 					</div>
 					
 					<!-- Action Buttons -->
-					<div class="flex gap-3">
+					<div class="flex gap-4 justify-center">
 						<button
 							onclick={shareResult}
-							class="flex-1 bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-blue-600 transition-colors"
+							class="glass-button px-6 py-2.5 rounded-lg font-medium text-white hover:bg-white/20 transition-all flex items-center gap-2"
 						>
-							Share Result 📱
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+							</svg>
+							Share
 						</button>
 						<button
 							onclick={reset}
-							class="flex-1 bg-gray-500 text-white font-semibold py-2 px-4 rounded-lg hover:bg-gray-600 transition-colors"
+							class="glass-button px-6 py-2.5 rounded-lg font-medium text-white hover:bg-white/20 transition-all flex items-center gap-2"
 						>
-							Try Again 🔄
+							<svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+							</svg>
+							Try Again
 						</button>
 					</div>
 				</div>
@@ -241,13 +294,101 @@
 </div>
 
 <style>
-	/* Add some animations */
-	@keyframes pulse {
-		0%, 100% { opacity: 1; }
-		50% { opacity: 0.7; }
+	/* Glass Morphism Effect */
+	.glass-morphism {
+		background: rgba(255, 255, 255, 0.1);
+		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+		backdrop-filter: blur(12px);
+		-webkit-backdrop-filter: blur(12px);
+		border: 1px solid rgba(255, 255, 255, 0.18);
 	}
-	
-	.animate-pulse {
-		animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+
+	.glass-button {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		transition: all 0.3s ease;
+	}
+
+	.glass-button:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.glass-button-hover {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		transition: all 0.3s ease;
+	}
+
+	.glass-button-hover:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+	}
+
+	.glass-input {
+		background: rgba(255, 255, 255, 0.1);
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+		color: white;
+	}
+
+	.glass-input::placeholder {
+		color: rgba(255, 255, 255, 0.7);
+	}
+
+	/* Animated gradient background */
+	:global(body) {
+		background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+		background-size: 400% 400%;
+		animation: gradient 15s ease infinite;
+	}
+
+	@keyframes gradient {
+		0% {
+			background-position: 0% 50%;
+		}
+		50% {
+			background-position: 100% 50%;
+		}
+		100% {
+			background-position: 0% 50%;
+		}
+	}
+
+	/* Update main container to be transparent */
+	.min-h-screen {
+		background: transparent !important;
+	}
+
+	/* Style form inputs for glass effect */
+	input, textarea, select {
+		background: rgba(255, 255, 255, 0.1) !important;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(255, 255, 255, 0.2) !important;
+		color: white !important;
+	}
+
+	input::placeholder, textarea::placeholder {
+		color: rgba(255, 255, 255, 0.7) !important;
+	}
+
+	/* Style the calculate button */
+	button[onclick*="handleCalculate"] {
+		background: rgba(236, 72, 153, 0.8) !important;
+		backdrop-filter: blur(5px);
+		-webkit-backdrop-filter: blur(5px);
+		border: 1px solid rgba(255, 255, 255, 0.3) !important;
+		transition: all 0.3s ease;
+	}
+
+	button[onclick*="handleCalculate"]:hover {
+		transform: translateY(-2px);
+		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
 	}
 </style>
