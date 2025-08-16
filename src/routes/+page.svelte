@@ -8,11 +8,9 @@
 	let showResult = $state(false);
 	
 	onMount(() => {
-        // Create container elements
         const topContainer = document.getElementById('adsterra-top-banner');
         const bottomContainer = document.getElementById('adsterra-bottom-banner');
 
-        // Function to load ad
         const loadAd = (container: HTMLElement | null) => {
             if (!container) return;
             
@@ -21,22 +19,20 @@
             iframe.style.height = '100%';
             iframe.style.border = 'none';
             iframe.style.overflow = 'hidden';
-            iframe.srcdoc = `
-                <!DOCTYPE html>
-                <html>
-                <head>
-                    <script data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
-                </head>
-                <body>
-                    <div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
-                </body>
-                </html>
-            `;
             
+            iframe.srcdoc = '<!DOCTYPE html>' +
+                '<html>' +
+                '<head>' +
+                '<script data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"><' + '/script>' +
+                '</head>' +
+                '<body>' +
+                '<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>' +
+                '</body>' +
+                '</html>';
+
             container.appendChild(iframe);
         };
 
-        // Load ads with a small delay
         setTimeout(() => {
             loadAd(topContainer);
             loadAd(bottomContainer);
