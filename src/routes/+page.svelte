@@ -7,57 +7,6 @@
 	let isCalculating = $state(false);
 	let showResult = $state(false);
 	
-	onMount(() => {
-        const topContainer = document.getElementById('adsterra-top-banner');
-        const bottomContainer = document.getElementById('adsterra-bottom-banner');
-
-        const loadAd = (container: HTMLElement | null) => {
-			if (!container) return;
-			
-			const iframe = document.createElement('iframe');
-			iframe.style.width = '100%';
-			iframe.style.height = '100%';
-			iframe.style.border = 'none';
-			iframe.style.overflow = 'hidden';
-			
-			// Add error handling for the iframe
-			iframe.onerror = () => {
-				console.log('Failed to load ad iframe');
-				container.innerHTML = '<div style="text-align: center; padding: 1rem;">Advertisement</div>';
-			};
-
-			// Set a timeout for the iframe load
-			const loadTimeout = setTimeout(() => {
-				if (!iframe.contentWindow || !iframe.contentDocument) {
-					iframe.onerror?.(new Event('timeout'));
-				}
-			}, 5000); // 5 second timeout
-
-			iframe.onload = () => clearTimeout(loadTimeout);
-			
-			iframe.srcdoc = '<!DOCTYPE html>' +
-				'<html>' +
-				'<head>' +
-				'<base target="_blank">' + // Open links in new tab
-				'<script>' +
-				'window.onerror = function() { document.body.innerHTML = ""; };' + // Hide errors
-				'</script>' +
-				'<script data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"><' + '/script>' +
-				'</head>' +
-				'<body style="margin:0;padding:0;overflow:hidden">' +
-				'<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>' +
-				'</body>' +
-				'</html>';
-
-			container.appendChild(iframe);
-		};
-
-        setTimeout(() => {
-            loadAd(topContainer);
-            loadAd(bottomContainer);
-        }, 500);
-    });
-
 	// Love calculation algorithm - consistent results for same names
 	function calculateLove(name1: string, name2: string): number {
 		if (!name1.trim() || !name2.trim()) return 0;
@@ -147,7 +96,11 @@
 <div class="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-red-100">
 	<!-- Ad Space Top -->
 	<div class="w-full h-20 bg-gray-100 border-b flex items-center justify-center text-gray-500 text-sm">
-		<div id="adsterra-top-banner"></div>
+		<!-- Ad Space Top -->
+		<div id="adsterra-top-banner">
+			<script async="async" data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+			<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
+		</div>
 	</div>
 	
 	<div class="container mx-auto px-4 py-8 max-w-md">
@@ -279,6 +232,9 @@
 	
 	<!-- Ad Space Bottom -->
 	<div class="w-full h-20 bg-gray-100 border-t flex items-center justify-center text-gray-500 text-sm mt-8">
-		<div id="adsterra-bottom-banner"></div>
+		<div id="adsterra-bottom-banner">
+			<script async="async" data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+			<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
+		</div>
 	</div>
 </div>
