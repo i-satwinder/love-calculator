@@ -7,6 +7,32 @@
 	let isCalculating = $state(false);
 	let showResult = $state(false);
 	
+	onMount(() => {
+		// Load ad script with error handling
+		const loadAdScript = (elementId) => {
+			try {
+				const script = document.createElement('script');
+				script.async = true;
+				script.dataset.cfasync = 'false';
+				script.src = '//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js';
+				script.onerror = () => console.error('Failed to load ad script');
+				document.getElementById(elementId)?.appendChild(script);
+			} catch (error) {
+				console.error('Error loading ad:', error);
+			}
+		};
+
+		// Load ads after a short delay to ensure DOM is ready
+		setTimeout(() => {
+			loadAdScript('adsterra-top-banner');
+			loadAdScript('adsterra-bottom-banner');
+		}, 500);
+
+		return () => {
+			// Cleanup if needed
+		};
+	});
+
 	// Love calculation algorithm - consistent results for same names
 	function calculateLove(name1: string, name2: string): number {
 		if (!name1.trim() || !name2.trim()) return 0;
@@ -231,33 +257,3 @@
 		<div id="adsterra-bottom-banner"></div>
 	</div>
 </div>
-
-<script>
-	import { onMount } from 'svelte';
-
-	onMount(() => {
-		// Load ad script with error handling
-		const loadAdScript = (elementId) => {
-			try {
-				const script = document.createElement('script');
-				script.async = true;
-				script.dataset.cfasync = 'false';
-				script.src = '//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js';
-				script.onerror = () => console.error('Failed to load ad script');
-				document.getElementById(elementId)?.appendChild(script);
-			} catch (error) {
-				console.error('Error loading ad:', error);
-			}
-		};
-
-		// Load ads after a short delay to ensure DOM is ready
-		setTimeout(() => {
-			loadAdScript('adsterra-top-banner');
-			loadAdScript('adsterra-bottom-banner');
-		}, 500);
-
-		return () => {
-			// Cleanup if needed
-		};
-	});
-</script>
