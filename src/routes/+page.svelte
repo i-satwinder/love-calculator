@@ -89,9 +89,9 @@
 	}
 </script>
 
-<svelte:head>
+<!-- <svelte:head>
 	<title>Love Calculator – Check Your Name Compatibility Online</title>
-</svelte:head>
+</svelte:head> -->
 
 <div class="min-h-screen bg-gradient-to-br from-pink-100 via-purple-50 to-red-100">
 	<!-- Ad Space Top -->
@@ -102,73 +102,75 @@
 		</div>
 	</div>
 	
-	<div class="container mx-auto px-4 py-8 max-w-md">
-		<!-- Header -->
-		<div class="text-center mb-8">
-			<h1 class="text-4xl font-bold text-pink-600 mb-2">💕 Love Calculator</h1>
-			<p class="text-gray-600">Discover your name compatibility percentage!</p>
-		</div>
+	<div class="container mx-auto px-4 py-12 max-w-3xl">
+		<h1 class="text-4xl font-bold text-center mb-8 text-pink-600 dark:text-pink-400">Love Compatibility Calculator</h1>
 		
-		<!-- Input Form -->
-		<div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
+		<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+			<p class="text-lg mb-6 text-gray-700 dark:text-gray-300">
+				Discover your love compatibility score with our fun and accurate love calculator. 
+				Enter two names below to see how well they match based on our unique algorithm.
+			</p>
+			
 			<div class="space-y-4">
 				<div>
-					<label for="name1" class="block text-sm font-medium text-gray-700 mb-2">Your Name</label>
-					<input
-						id="name1"
-						type="text"
+					<label for="name1" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Your Name</label>
+					<input 
+						type="text" 
+						id="name1" 
 						bind:value={name1}
+						class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
 						placeholder="Enter your name"
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
 						disabled={isCalculating ? true : false}
 					/>
 				</div>
 				
-				<div class="text-center text-2xl">💖</div>
+				<div class="text-4xl text-center text-pink-500">❤️</div>
 				
 				<div>
-					<label for="name2" class="block text-sm font-medium text-gray-700 mb-2">Partner's Name</label>
-					<input
-						id="name2"
-						type="text"
+					<label for="name2" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Partner's Name</label>
+					<input 
+						type="text" 
+						id="name2" 
 						bind:value={name2}
+						class="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-md focus:ring-2 focus:ring-pink-500 focus:border-transparent dark:bg-gray-700 dark:text-white"
 						placeholder="Enter partner's name"
-						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
 						disabled={isCalculating ? true : false}
 					/>
 				</div>
 				
-				<button
-					onclick={handleCalculate}
-					disabled={isCalculating || !name1.trim() || !name2.trim() ? true : false}
-					class="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-pink-600 hover:to-red-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
-				>
-					{#if isCalculating}
-						<span class="flex items-center justify-center">
-							<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-								<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-								<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-							</svg>
-							Calculating Love...
-						</span>
-					{:else}
-						Calculate Love 💕
-					{/if}
-				</button>
+				<div class="pt-4">
+					<button 
+						onclick={handleCalculate}
+						disabled={!name1 || !name2 || isCalculating}
+						class="w-full bg-pink-600 hover:bg-pink-700 text-white font-bold py-3 px-6 rounded-md transition duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+					>
+						{#if isCalculating}
+							<span class="flex items-center justify-center">
+								<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+									<circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+									<path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+								</svg>
+								Calculating Love...
+							</span>
+						{:else}
+							Calculate Love 💕
+						{/if}
+					</button>
+				</div>
 			</div>
 		</div>
 		
 		<!-- Result Display -->
 		{#if showResult && result}
-			<div class="bg-white rounded-2xl shadow-lg p-6 mb-6 transform transition-all duration-500 ease-in-out">
+			<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8 transform transition-all duration-500 ease-in-out">
 				<div class="text-center">
 					<div class="mb-4">
 						<div class="text-6xl font-bold text-pink-600 mb-2">{result.percentage}%</div>
-						<div class="text-lg text-gray-700 mb-4">{result.message}</div>
+						<div class="text-lg text-gray-700 dark:text-gray-300 mb-4">{result.message}</div>
 					</div>
 					
 					<!-- Progress Bar -->
-					<div class="w-full bg-gray-200 rounded-full h-4 mb-6">
+					<div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-4 mb-6">
 						<div 
 							class="bg-gradient-to-r from-pink-500 to-red-500 h-4 rounded-full transition-all duration-1000 ease-out"
 							style="width: {result.percentage}%"
@@ -195,9 +197,9 @@
 		{/if}
 		
 		<!-- How it Works -->
-		<div class="bg-white rounded-2xl shadow-lg p-6 mb-6">
-			<h2 class="text-xl font-bold text-gray-800 mb-3">How it Works</h2>
-			<p class="text-gray-600 text-sm leading-relaxed">
+		<div class="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-6 mb-8">
+			<h2 class="text-2xl font-bold mb-4 text-gray-800 dark:text-white">How it Works</h2>
+			<p class="text-gray-600 text-sm leading-relaxed dark:text-gray-300">
 				Our love calculator uses a special algorithm based on the letters in your names to calculate compatibility. 
 				The same names will always give the same result, making it fun and consistent!
 			</p>
@@ -205,7 +207,7 @@
 		
 		<!-- Social Share -->
 		<div class="text-center">
-			<p class="text-gray-600 text-sm mb-4">Share with friends:</p>
+			<p class="text-gray-600 text-sm mb-4 dark:text-gray-300">Share with friends:</p>
 			<div class="flex justify-center gap-4">
 				<button
 					onclick={() => window.open(`https://wa.me/?text=Check your love compatibility at ${window.location.href}`, '_blank')}
@@ -237,3 +239,15 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	/* Add some animations */
+	@keyframes pulse {
+		0%, 100% { opacity: 1; }
+		50% { opacity: 0.7; }
+	}
+	
+	.animate-pulse {
+		animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+</style>
