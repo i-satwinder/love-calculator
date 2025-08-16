@@ -294,101 +294,114 @@
 </div>
 
 <style>
+	/* Romantic Light Theme */
+	:global(body) {
+		background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fbc2eb, #a6c1ee);
+		background-size: 400% 400%;
+		animation: gradient 15s ease infinite;
+		color: #4a4a4a;
+	}
+
+	@keyframes gradient {
+		0% { background-position: 0% 50%; }
+		50% { background-position: 100% 50%; }
+		100% { background-position: 0% 50%; }
+	}
+
 	/* Glass Morphism Effect */
 	.glass-morphism {
-		background: rgba(255, 255, 255, 0.1);
-		box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-		backdrop-filter: blur(12px);
-		-webkit-backdrop-filter: blur(12px);
-		border: 1px solid rgba(255, 255, 255, 0.18);
+		background: rgba(255, 255, 255, 0.7);
+		box-shadow: 0 8px 32px 0 rgba(255, 182, 193, 0.3);
+		backdrop-filter: blur(8px);
+		-webkit-backdrop-filter: blur(8px);
+		border: 1px solid rgba(255, 255, 255, 0.5);
 	}
 
 	.glass-button {
-		background: rgba(255, 255, 255, 0.1);
+		background: rgba(255, 255, 255, 0.7);
 		backdrop-filter: blur(5px);
 		-webkit-backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		border: 1px solid rgba(255, 255, 255, 0.8);
 		transition: all 0.3s ease;
+		color: #ff6b88;
 	}
 
 	.glass-button:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 20px rgba(255, 107, 136, 0.2);
 	}
 
 	.glass-button-hover {
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
+		background: linear-gradient(45deg, #ff6b88, #ff8e9e);
+		color: white;
+		border: none;
 		transition: all 0.3s ease;
 	}
 
 	.glass-button-hover:hover {
 		transform: translateY(-2px);
-		box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+		box-shadow: 0 4px 20px rgba(255, 107, 136, 0.4);
 	}
 
 	.glass-input {
-		background: rgba(255, 255, 255, 0.1);
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.2);
-		color: white;
-	}
-
-	.glass-input::placeholder {
-		color: rgba(255, 255, 255, 0.7);
-	}
-
-	/* Animated gradient background */
-	:global(body) {
-		background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
-		background-size: 400% 400%;
-		animation: gradient 15s ease infinite;
-	}
-
-	@keyframes gradient {
-		0% {
-			background-position: 0% 50%;
-		}
-		50% {
-			background-position: 100% 50%;
-		}
-		100% {
-			background-position: 0% 50%;
-		}
-	}
-
-	/* Update main container to be transparent */
-	.min-h-screen {
-		background: transparent !important;
-	}
-
-	/* Style form inputs for glass effect */
-	input, textarea, select {
-		background: rgba(255, 255, 255, 0.1) !important;
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.2) !important;
-		color: white !important;
-	}
-
-	input::placeholder, textarea::placeholder {
-		color: rgba(255, 255, 255, 0.7) !important;
-	}
-
-	/* Style the calculate button */
-	button[onclick*="handleCalculate"] {
-		background: rgba(236, 72, 153, 0.8) !important;
-		backdrop-filter: blur(5px);
-		-webkit-backdrop-filter: blur(5px);
-		border: 1px solid rgba(255, 255, 255, 0.3) !important;
+		background: rgba(255, 255, 255, 0.8) !important;
+		border: 1px solid rgba(255, 182, 193, 0.5) !important;
+		color: #4a4a4a !important;
 		transition: all 0.3s ease;
 	}
 
-	button[onclick*="handleCalculate"]:hover {
-		transform: translateY(-2px);
-		box-shadow: 0 4px 20px rgba(236, 72, 153, 0.3);
+	.glass-input:focus {
+		border-color: #ff6b88 !important;
+		box-shadow: 0 0 0 2px rgba(255, 107, 136, 0.2);
+	}
+
+	.glass-input::placeholder {
+		color: #c4c4c4 !important;
+	}
+
+	/* Text colors */
+	h1, h2, h3, h4, h5, h6 {
+		color: #5d3a3a;
+	}
+
+	label {
+		color: #5d3a3a !important;
+	}
+
+	/* Update form section */
+	.container {
+		padding: 2rem 1rem;
+	}
+
+	/* Update ad spaces */
+	.bg-gray-100 {
+		background-color: rgba(255, 255, 255, 0.7) !important;
+		border-color: rgba(255, 182, 193, 0.3) !important;
+	}
+
+	/* Update social share buttons */
+	.bg-green-500 { background-color: #48bb78 !important; }
+	.bg-blue-400 { background-color: #63b3ed !important; }
+	.bg-gray-500 { background-color: #a0aec0 !important; }
+
+	/* Update the progress ring */
+	text {
+		fill: #5d3a3a;
+	}
+
+	/* Update the heart icon color */
+	svg.text-pink-500 {
+		color: #ff6b88 !important;
+	}
+
+	/* Add subtle animation to the plus icon */
+	@keyframes pulse {
+		0% { transform: scale(1); }
+		50% { transform: scale(1.1); }
+		100% { transform: scale(1); }
+	}
+
+	.flex.justify-center svg {
+		animation: pulse 2s infinite;
 	}
 </style>
