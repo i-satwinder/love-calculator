@@ -98,7 +98,7 @@
 	<div class="w-full h-20 bg-gray-100 border-b flex items-center justify-center text-gray-500 text-sm">
 		<!-- Ad Space Top -->
 		<div id="adsterra-top-banner">
-			<script async="async" data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+			<script async data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
 			<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
 		</div>
 	</div>
@@ -121,7 +121,7 @@
 						bind:value={name1}
 						placeholder="Enter your name"
 						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-						disabled={isCalculating}
+						disabled={isCalculating ? true : false}
 					/>
 				</div>
 				
@@ -135,13 +135,13 @@
 						bind:value={name2}
 						placeholder="Enter partner's name"
 						class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent outline-none transition-all"
-						disabled={isCalculating}
+						disabled={isCalculating ? true : false}
 					/>
 				</div>
 				
 				<button
 					onclick={handleCalculate}
-					disabled={isCalculating || !name1.trim() || !name2.trim()}
+					disabled={isCalculating || !name1.trim() || !name2.trim() ? true : false}
 					class="w-full bg-gradient-to-r from-pink-500 to-red-500 text-white font-semibold py-3 px-6 rounded-lg hover:from-pink-600 hover:to-red-600 disabled:opacity-50 disabled:cursor-not-allowed transition-all transform hover:scale-105"
 				>
 					{#if isCalculating}
@@ -233,7 +233,7 @@
 	<!-- Ad Space Bottom -->
 	<div class="w-full h-20 bg-gray-100 border-t flex items-center justify-center text-gray-500 text-sm mt-8">
 		<div id="adsterra-bottom-banner">
-			<script async="async" data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+			<script async data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
 			<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
 		</div>
 	</div>
