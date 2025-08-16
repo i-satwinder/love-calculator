@@ -8,30 +8,40 @@
 	let showResult = $state(false);
 	
 	onMount(() => {
-		// Load ad script with error handling
-		const loadAdScript = (elementId) => {
-			try {
-				const script = document.createElement('script');
-				script.async = true;
-				script.dataset.cfasync = 'false';
-				script.src = '//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js';
-				script.onerror = () => console.error('Failed to load ad script');
-				document.getElementById(elementId)?.appendChild(script);
-			} catch (error) {
-				console.error('Error loading ad:', error);
-			}
-		};
+        // Create container elements
+        const topContainer = document.getElementById('adsterra-top-banner');
+        const bottomContainer = document.getElementById('adsterra-bottom-banner');
 
-		// Load ads after a short delay to ensure DOM is ready
-		setTimeout(() => {
-			loadAdScript('adsterra-top-banner');
-			loadAdScript('adsterra-bottom-banner');
-		}, 500);
+        // Function to load ad
+        const loadAd = (container: HTMLElement | null) => {
+            if (!container) return;
+            
+            const iframe = document.createElement('iframe');
+            iframe.style.width = '100%';
+            iframe.style.height = '100%';
+            iframe.style.border = 'none';
+            iframe.style.overflow = 'hidden';
+            iframe.srcdoc = `
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <script data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"></script>
+                </head>
+                <body>
+                    <div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>
+                </body>
+                </html>
+            `;
+            
+            container.appendChild(iframe);
+        };
 
-		return () => {
-			// Cleanup if needed
-		};
-	});
+        // Load ads with a small delay
+        setTimeout(() => {
+            loadAd(topContainer);
+            loadAd(bottomContainer);
+        }, 500);
+    });
 
 	// Love calculation algorithm - consistent results for same names
 	function calculateLove(name1: string, name2: string): number {
