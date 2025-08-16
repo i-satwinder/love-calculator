@@ -186,7 +186,7 @@
 			<div class="glass-morphism p-8 rounded-2xl backdrop-blur-lg border border-white/20 shadow-xl mb-8 transform transition-all duration-500 ease-in-out">
 				<div class="text-center">
 					<div class="mb-6">
-						<div class="text-7xl dark:text-white/90 font-bold mb-2 drop-shadow-lg" style="color: linear-gradient(to right, #ec4899, #f43f5e);">{result.percentage}%</div>
+						<div class="text-7xl dark:text-white/90 font-bold mb-2 drop-shadow-lg" style="color: #ff2f59;">{result.percentage}%</div>
 						<div class="text-xl dark:text-white/90 mb-6 font-medium">{result.message}</div>
 						
 						<!-- Animated Progress Ring -->
