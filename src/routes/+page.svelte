@@ -12,26 +12,45 @@
         const bottomContainer = document.getElementById('adsterra-bottom-banner');
 
         const loadAd = (container: HTMLElement | null) => {
-            if (!container) return;
-            
-            const iframe = document.createElement('iframe');
-            iframe.style.width = '100%';
-            iframe.style.height = '100%';
-            iframe.style.border = 'none';
-            iframe.style.overflow = 'hidden';
-            
-            iframe.srcdoc = '<!DOCTYPE html>' +
-                '<html>' +
-                '<head>' +
-                '<script data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"><' + '/script>' +
-                '</head>' +
-                '<body>' +
-                '<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>' +
-                '</body>' +
-                '</html>';
+			if (!container) return;
+			
+			const iframe = document.createElement('iframe');
+			iframe.style.width = '100%';
+			iframe.style.height = '100%';
+			iframe.style.border = 'none';
+			iframe.style.overflow = 'hidden';
+			
+			// Add error handling for the iframe
+			iframe.onerror = () => {
+				console.log('Failed to load ad iframe');
+				container.innerHTML = '<div style="text-align: center; padding: 1rem;">Advertisement</div>';
+			};
 
-            container.appendChild(iframe);
-        };
+			// Set a timeout for the iframe load
+			const loadTimeout = setTimeout(() => {
+				if (!iframe.contentWindow || !iframe.contentDocument) {
+					iframe.onerror?.(new Event('timeout'));
+				}
+			}, 5000); // 5 second timeout
+
+			iframe.onload = () => clearTimeout(loadTimeout);
+			
+			iframe.srcdoc = '<!DOCTYPE html>' +
+				'<html>' +
+				'<head>' +
+				'<base target="_blank">' + // Open links in new tab
+				'<script>' +
+				'window.onerror = function() { document.body.innerHTML = ""; };' + // Hide errors
+				'</script>' +
+				'<script data-cfasync="false" src="//pl27434935.profitableratecpm.com/b69b2703918ded0a66b9da0f5f05a76b/invoke.js"><' + '/script>' +
+				'</head>' +
+				'<body style="margin:0;padding:0;overflow:hidden">' +
+				'<div id="container-b69b2703918ded0a66b9da0f5f05a76b"></div>' +
+				'</body>' +
+				'</html>';
+
+			container.appendChild(iframe);
+		};
 
         setTimeout(() => {
             loadAd(topContainer);
