@@ -37,7 +37,18 @@
 		<link rel="manifest" href="/favicon/manifest.json" />
 		<meta name="theme-color" content="#ec4899" />
 
+		<!-- Google Site Varification -->
 		<meta name="google-site-verification" content="t3VEDOI7-aNk-ePExRvyGWr8eeuatJB6jrO3EBbdM1Y" />
+
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-7E30ES21WM"></script>
+		<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-7E30ES21WM');
+		</script>
 		
 		<!-- Svelte Head Content -->
 		%sveltekit.head%
